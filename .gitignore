@@ -1,3 +1,11 @@
 /target
 
+# IDE
 *.code-workspace
+
+# Config
+vowels.csv
+onsets.csv
+onset-vowels.csv
+codas.csv
+

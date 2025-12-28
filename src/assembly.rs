@@ -98,3 +98,14 @@ impl Inventory {
   }
 
 }
+
+/* 
+#[cfg(test)]
+mod tests {
+    use super::Inventory;
+
+    #[test]
+    fn get() {
+    }
+}
+*/

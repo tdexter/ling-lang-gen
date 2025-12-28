@@ -3,11 +3,16 @@ use serde::Deserialize;
 use std::fs::File;
 use std::path::Path;
 
+use crate::order::Order;
+
 #[derive(Debug, Deserialize, Clone)]
 pub struct Letter {
   romanization: String,
   weight: f64,
-  final_weight: f64,
+  #[serde(default)]
+  initial_weight:Option<f64>,
+  #[serde(default)]
+  final_weight: Option<f64>,
 }
 
 impl Letter {
@@ -15,9 +20,11 @@ impl Letter {
     &self.romanization
   }
   
-  pub fn weight(&self, is_final: bool) -> f64 {
-    if is_final {
-      self.final_weight
+  pub fn weight(&self, order: &Order) -> f64 {
+    if order.is_initial() && self.initial_weight.is_some() {
+      self.initial_weight.unwrap()
+    } else if order.is_final() && self.final_weight.is_some() {
+      self.final_weight.unwrap()
     } else {
       self.weight
     }

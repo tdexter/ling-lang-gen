@@ -4,6 +4,7 @@ mod assembly;
 mod combinations;
 mod generator;
 mod letter;
+mod order;
 
 pub use crate::args::Args;
 pub use crate::assembly::Inventory;

@@ -38,3 +38,5 @@ impl Args {
         self.max
     }
 }
+
+// no logic to test

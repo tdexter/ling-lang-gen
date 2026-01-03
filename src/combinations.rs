@@ -37,3 +37,5 @@ impl Combo {
     }
 
 }
+
+// from_file is not tested because it is mostly integration. 

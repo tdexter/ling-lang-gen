@@ -31,3 +31,27 @@ impl Order {
     matches!(self, Order::Medial)
   }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::Order;
+
+
+    #[test]    
+    fn from_position_initial() {
+        let order = Order::from_position(1, 3);
+        assert!(order.is_initial());
+    }
+
+    #[test]    
+    fn from_position_final() {
+        let order = Order::from_position(3, 3);
+        assert!(order.is_final());
+    }
+
+    #[test]    
+    fn from_position_medial() {
+        let order = Order::from_position(2, 3);
+        assert!(order.is_medial());
+    }
+}
